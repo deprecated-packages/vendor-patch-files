@@ -1,6 +1,6 @@
---- a/Loader/PhpFileLoader.php
-+++ b/Loader/PhpFileLoader.php
-@@ -64,7 +64,11 @@ class PhpFileLoader extends FileLoader
+--- /dev/null
++++ ../Loader/PhpFileLoader.php
+@@ -64,7 +64,11 @@
              $callback = $load($path, $this->env);
 
              if (\is_object($callback) && \is_callable($callback)) {
@@ -13,7 +13,7 @@
              }
          } finally {
              $this->instanceof = [];
-@@ -118,25 +122,26 @@ class PhpFileLoader extends FileLoader
+@@ -121,25 +125,26 @@
              }
              $type = $reflectionType->getName();
 
@@ -58,3 +58,16 @@
 +                }
              }
          }
+
+@@ -163,9 +168,11 @@
+             throw new \LogicException('You cannot use the config builder as the Config component is not installed. Try running "composer require symfony/config".');
+         }
+
++
+         if (null === $this->generator) {
+             throw new \LogicException('You cannot use the ConfigBuilders without providing a class implementing ConfigBuilderGeneratorInterface.');
+         }
++
+
+         // If class exists and implements ConfigBuilderInterface
+         if (class_exists($namespace) && is_subclass_of($namespace, ConfigBuilderInterface::class)) {
