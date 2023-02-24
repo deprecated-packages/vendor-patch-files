@@ -1,5 +1,5 @@
---- /dev/null
-+++ ../Loader/PhpFileLoader.php
+--- a/Loader/PhpFileLoader.php
++++ b/Loader/PhpFileLoader.php
 @@ -64,7 +64,11 @@
              $callback = $load($path, $this->env);
 
